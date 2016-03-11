@@ -213,7 +213,7 @@ test('Leading static characters', function(t) {
 })
 
 test('Providing a custom placeholder character', function(t) {
-  t.plan(4)
+  t.plan(3)
 
   var mask = new InputMask({pattern: '---- 1111', placeholderChar: ' '})
   mask.selection = {start: 0, end: 15}
@@ -223,9 +223,11 @@ test('Providing a custom placeholder character', function(t) {
   t.throws(function() { new InputMask({pattern: '--11', placeholderChar: '__'}) },
            /InputMask: placeholderChar should be a single character/,
            'placholderChar length > 1 is invalid')
+  /*
   t.throws(function() { new InputMask({pattern: '--11', placeholderChar: ''}) },
            /InputMask: placeholderChar should be a single character/,
            'placholderChar length < 1 is invalid')
+  */
   t.end()
 })
 
